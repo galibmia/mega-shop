@@ -1,6 +1,6 @@
 .header {
     background: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    background: radial-gradient(circle, rgb(252, 252, 252) 0%, rgb(202, 226, 252) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,7 +9,8 @@
     top: 0;
     left: 0;
     width: 90%;
-    z-index: 1000; 
+    z-index: 1000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
 }
 
 .header img {
@@ -18,5 +19,5 @@
 
 .header a {
     padding-left: 20px;
-    color: #ffff;
+    color: #000000;
 }
