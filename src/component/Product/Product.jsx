@@ -7,10 +7,10 @@ const Product = (props) => {
     const addToCart = props.addToCart;
     return (
         <div className='card'>
-            <img src={img} alt="..." />
+            <div className='card-img'><img src={img} alt="..." /></div>
             <div className="card-body">
                 <h4 className='product-name'>{name}</h4>
-                <p>Price: {price}</p>
+                <p>Price: ${price}</p>
                 <p>Manufacturer: {seller}</p>
                 <p>Ratting: {ratings}</p>
             </div>

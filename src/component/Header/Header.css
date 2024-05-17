@@ -1,12 +1,22 @@
-.header{
-    background-color: #1C2B35;
+.header {
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 100px;
+    padding: 20px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    z-index: 1000; 
 }
 
-.header a{
+.header img {
+    width: 120px;
+}
+
+.header a {
     padding-left: 20px;
     color: #ffff;
 }
