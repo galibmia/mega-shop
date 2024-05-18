@@ -6,7 +6,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const Cart = (props) => {
     const {cart} = props;
-    console.log(cart)
+    // console.log(cart)
     let total =0;
     let totalShipping = 0;
     
@@ -27,7 +27,7 @@ const Cart = (props) => {
             <p>Total Price: ${total}</p>
             <p>Total Shipping Charge: ${totalShipping}</p>
             <p>Tax: ${totalTax}</p>
-            <h4>Grand Total: {grandTotal} </h4>
+            <h4>Grand Total: ${grandTotal} </h4>
             </div>
             <div className='btn-container'>
                 <button className='btn-clear'>Clear Cart <FontAwesomeIcon icon={faTrash} /></button>
