@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const { cart } = props;
@@ -43,8 +44,8 @@ const Cart = (props) => {
 
     return (
         <div className='order-summary'>
-            <div>
-                <h3 className='title'>Order Summary</h3>
+            <h1 className='title'>Order Summary</h1>
+            <div className='order-summary-text'>
                 <p>Total Item Selected: {quantity}</p>
                 <p>Total Price: ${total}</p>
                 <p>Total Shipping Charge: ${totalShipping}</p>
@@ -52,8 +53,8 @@ const Cart = (props) => {
                 <h4>Grand Total: ${grandTotal} </h4>
             </div>
             <div className='btn-container'>
-                <button onClick={clearCart} className='btn-clear'>Clear Cart <FontAwesomeIcon icon={faTrash} /></button>
-                <button className='btn-review-order'>Review Order <FontAwesomeIcon icon={faArrowRight} /></button>
+                <button onClick={clearCart} className='btn-clear btn-text'>Clear Cart <FontAwesomeIcon icon={faTrash} /></button>
+                <Link to={'/orders'}><button className='btn-review-order btn-text'>Review Order <FontAwesomeIcon icon={faArrowRight} /></button></Link>
             </div>
         </div>
     );

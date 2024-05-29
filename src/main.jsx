@@ -9,6 +9,9 @@ import App from './App';
 import Shop from './component/Shop/Shop';
 import Error from './component/Error/Error';
 import Home from './component/Home/Home';
+import Orders from './component/Orders/Orders';
+import Inventory from './component/Inventory/Inventory';
+import cartLoader from './Loader/CartProductLoader/cartProductLoader';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +22,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Shop></Shop>,
-      }
+      },
+      {
+        path: "orders",
+        element: <Orders></Orders>,
+        loader: cartLoader
+      },
+      {
+        path: "inventory",
+        element: <Inventory></Inventory>,
+      },
     ]
   },
 ]);

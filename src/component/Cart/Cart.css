@@ -1,6 +1,15 @@
 .order-summary {
     padding: 25px;
 }
+.order-summary-text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 49px;
+}
+.order-summary-text p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .order-summary .title {
     text-align: center;

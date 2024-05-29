@@ -28,7 +28,9 @@ const styles = {
     padding: '10px 20px',
     fontSize: '1em',
     cursor: 'pointer',
-    color: 'white'
+    color: 'white',
+    backgroundColor: "black",
+    borderRadius: "10px"
   },
 };
 
