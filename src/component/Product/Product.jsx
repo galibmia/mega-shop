@@ -8,7 +8,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 const Product = (props) => {
     const {name, img, price, seller, ratings} = props.product;
     const addToCart = props.addToCart;
-    
+
+
     return (
         <div className='card'>
             <div className='card-img'><img src={img} alt="..." /></div>

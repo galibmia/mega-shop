@@ -37,9 +37,15 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+    outline: none;
+    border: none;
 }
 .cart-btn:hover{
-    background-color: #ff99009b;
+    background-color: #ff9900d0;
     cursor: pointer;
+    outline: none;
+}
+.cart-btn:focus{
+    outline: none;
 }
 
