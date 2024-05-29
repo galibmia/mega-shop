@@ -8,11 +8,12 @@ import {
 import App from './App';
 import Shop from './component/Shop/Shop';
 import Error from './component/Error/Error';
+import Home from './component/Home/Home';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <Home></Home>,
     errorElement: <Error></Error>,
     children: [
       {
