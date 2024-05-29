@@ -1,17 +1,12 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
+ */
 
 
-*{
-  margin: 0;
-  padding: 0;
-  font-family: lato;
-  /* font-size: 18px; */
-}
-p{
+/* p{
   font-size: 20px;
-}
+} */
 
 .container{
   margin-top: 120px;

@@ -2,18 +2,19 @@ import React from 'react';
 import "./Order.css";
 import { TrashIcon } from '@heroicons/react/20/solid'
 
-const Order = ({ cart }) => {
-    const { img, name, price, shipping } = cart
+const Order = ({ product, handelRemoveFromCart }) => {
+    const { id, img, name, price, quantity } = product;
+
     return (
         <div className='orderedItem'>
             <img className='orderedImg' src={img} alt="" />
             <div className='cart-item-info'>
                 <div>
                     <h4>{name}</h4>
-                    <p>Price: ${price}</p>
-                    <p>Shipping Charge: ${shipping}</p>
+                    <p>Price: <span className='text-order'>${price}</span></p>
+                    <p>Order Quantity: <span className='text-order'>{quantity}</span></p>
                 </div>
-                <TrashIcon className="size-2 text-blue-500 trashIcon" />
+                <button onClick={() => handelRemoveFromCart(id)} className='btn'><TrashIcon className="trashIcon" /></button>
             </div>
         </div>
     );

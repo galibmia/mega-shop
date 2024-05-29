@@ -12,9 +12,9 @@ const Product = (props) => {
 
     return (
         <div className='card'>
-            <div className='card-img'><img src={img} alt="..." /></div>
+            <div className='card-img '><img className='object-cover' src={img} alt="..." /></div>
             <div className="card-body">
-                <h4 className='product-name'>{name}</h4>
+                <h4 className='product-name font-semibold'>{name}</h4>
                 <p>Price: ${price}</p>
                 <p>Manufacturer: {seller}</p>
                 <p>Ratting: {ratings} <FontAwesomeIcon icon={faStar} /> </p>

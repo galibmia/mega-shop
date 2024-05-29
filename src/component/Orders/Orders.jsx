@@ -1,22 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Orders.css"
 import Cart from '../Cart/Cart';
 import { useLoaderData } from 'react-router-dom';
 import Order from '../Order/Order';
+import { removeFromDb } from '../../utilities/fakedb';
+import { toast } from 'react-toastify';
 
 const Orders = () => {
-    const carts = useLoaderData();
-    console.log(carts)
+    const SavedCart = useLoaderData();
+
+    const [cart, setCart] = useState(SavedCart);
+
+    const handelRemoveFromCart = (id) => {
+        const remaining = cart.filter(product => product.id !== id);
+
+        setCart(remaining);
+
+        removeFromDb(id);
+
+        toast.warn("Item Deleted", {
+            position: "top-right",
+            autoClose: 500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 600);
+    }
+
     return (
         <div className='shop-container'>
             <div className="cart-item-container">
-            {carts.map(cart => {
-                    return <Order key={cart.id} cart = {cart}></Order>
-                    // console.log(cart.id)
+                {SavedCart.map(product => {
+                    return <Order key={product.id}
+                        product={product}
+                        handelRemoveFromCart={handelRemoveFromCart}
+                    ></Order>
                 })}
             </div>
             <div className="order-container">
-                <Cart cart={carts}></Cart>
+                <Cart cart={SavedCart}></Cart>
             </div>
         </div>
     );

@@ -38,7 +38,6 @@ const Shop = () => {
     const addToCart = (product) => {
 
         // Tost
-
         toast.success("Successfully Added", {
             position: "top-right",
             autoClose: 1000,
@@ -48,7 +47,6 @@ const Shop = () => {
             draggable: true,
             progress: undefined,
             theme: "light",
-            // transition: Bounce,
         });
 
         let newCart = [];

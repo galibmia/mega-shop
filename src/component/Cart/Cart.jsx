@@ -24,6 +24,7 @@ const Cart = (props) => {
     const grandTotal = total + totalShipping + totalTax;
 
     const clearCart = () => {
+
         toast.warn("Cart Clear", {
             position: "top-right",
             autoClose: 1000,
@@ -33,9 +34,10 @@ const Cart = (props) => {
             draggable: true,
             progress: undefined,
             theme: "light",
-            // transition: Bounce,
         });
+
         window.localStorage.clear();
+
         setTimeout(() => {
             window.location.reload();
         }, 1100);
@@ -44,7 +46,7 @@ const Cart = (props) => {
 
     return (
         <div className='order-summary'>
-            <h1 className='title'>Order Summary</h1>
+            <h1 className='title text-3xl font-semibold'>Order Summary</h1>
             <div className='order-summary-text'>
                 <p>Total Item Selected: {quantity}</p>
                 <p>Total Price: ${total}</p>
