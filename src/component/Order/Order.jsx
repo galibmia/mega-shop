@@ -15,6 +15,7 @@ const Order = ({ product, handelRemoveFromCart }) => {
                     <p>Order Quantity: <span className='text-order'>{quantity}</span></p>
                 </div>
                 <button onClick={() => handelRemoveFromCart(id)} className='btn'><TrashIcon className="trashIcon" /></button>
+                <button onClick={() => handelRemoveFromCart(id)} className='btn-delete'>Delete</button>
             </div>
         </div>
     );

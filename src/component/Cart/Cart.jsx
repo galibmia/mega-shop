@@ -1,62 +1,56 @@
 import React from 'react';
 import './Cart.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faCreditCard, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const Cart = (props) => {
-    const { cart } = props;
-    // console.log(cart)
+const Cart = ({ cart, handelClearCart }) => {
     let total = 0;
     let totalShipping = 0;
     let quantity = 0;
 
     for (const product of cart) {
-        total = total + product.price * product.quantity;
-        totalShipping = totalShipping + product.shipping * product.quantity;
-        quantity = quantity + product.quantity;
+        total += product.price * product.quantity;
+        totalShipping += product.shipping * product.quantity;
+        quantity += product.quantity;
     }
 
-    const tax = (total * 0.15);
-    const totalTax = parseFloat(tax.toFixed(2));
-    const grandTotal = total + totalShipping + totalTax;
+    const tax = (total * 0.15).toFixed(2);
+    const grandTotal = (total + totalShipping + parseFloat(tax)).toFixed(2);
 
-    const clearCart = () => {
-
-        toast.warn("Cart Clear", {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-
-        window.localStorage.clear();
-
-        setTimeout(() => {
-            window.location.reload();
-        }, 1100);
-
-    }
+    const location = useLocation();
 
     return (
         <div className='order-summary'>
-            <h1 className='title text-3xl font-semibold'>Order Summary</h1>
+            <h1 className='title'>Order Summary</h1>
             <div className='order-summary-text'>
-                <p>Total Item Selected: {quantity}</p>
+                <p>Total Items: {quantity}</p>
                 <p>Total Price: ${total}</p>
-                <p>Total Shipping Charge: ${totalShipping}</p>
-                <p>Tax: ${totalTax}</p>
-                <h4>Grand Total: ${grandTotal} </h4>
+                <p>Total Shipping: ${totalShipping}</p>
+                <p>Tax: ${tax}</p>
+                <h4>Grand Total: ${grandTotal}</h4>
             </div>
             <div className='btn-container'>
-                <button onClick={clearCart} className='btn-clear btn-text'>Clear Cart <FontAwesomeIcon icon={faTrash} /></button>
-                <Link to={'/orders'}><button className='btn-review-order btn-text'>Review Order <FontAwesomeIcon icon={faArrowRight} /></button></Link>
+                {location.pathname === '/orders' && (
+                    <>
+                        <button onClick={handelClearCart} className='btn-clear'>
+                            Clear Cart <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                        <Link to='/checkout'>
+                            <button className='btn-review-order'>
+                                Proceed To Checkout <FontAwesomeIcon icon={faCreditCard} />
+                            </button>
+                        </Link>
+                    </>
+                )}
+                {location.pathname !== '/orders' && (
+                    <Link to='/orders'>
+                        <button className='btn-review-order'>
+                            Review Order <FontAwesomeIcon icon={faArrowRight} />
+                        </button>
+                    </Link>
+                )}
             </div>
         </div>
     );
