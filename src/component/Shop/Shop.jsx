@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+
+    const {loading} = useContext(AuthContext)
 
     useEffect(() => {
         fetch('products.json')
@@ -73,6 +76,12 @@ const Shop = () => {
             window.location.reload();
         }, 600);
     }
+
+    if(loading){
+        return <div className='loader-container' >
+            <div className='loader'></div>
+        </div>
+    };
 
     return (
         <div className='shop-container'>

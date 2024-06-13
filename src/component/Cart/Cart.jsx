@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faCreditCard, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
 import { Link, useLocation } from 'react-router-dom';
 
 const Cart = ({ cart, handelClearCart }) => {
+    
     let total = 0;
     let totalShipping = 0;
     let quantity = 0;

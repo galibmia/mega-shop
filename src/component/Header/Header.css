@@ -27,6 +27,15 @@
     text-decoration: none;
 }
 
+.user {
+    padding: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+.user button {
+    padding: 0 5px;
+}
+
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -42,6 +51,7 @@
     .nav-links {
         flex-direction: row;
         align-items: flex-start;
+        flex-wrap: wrap;
         gap: 5px;
     }
 

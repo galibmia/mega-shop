@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Inventory = () => {
-    return (
-        
-        <div className='container spinner'>
-            <span className="loader"></span>
+    const {loading} = useContext(AuthContext)
+    
+    if(loading){
+        return <div className='loader-container' >
+            <div className='loader'></div>
         </div>
-    );
+    };
 };
 
 export default Inventory;
